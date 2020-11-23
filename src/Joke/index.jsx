@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './style.css';
 
-const JokeTemplate = ({ id, name, text, likes, dislikes }) => {
+const JokeTemplate = (props) => {
   const [likes, setLikes] = useState(props.likes);
-  const [dislikes, setDislike] = useState(props.dislikes);
+  const [dislikes, setDislikes] = useState(props.dislikes);
   return (
     <>
       <div className="container">
@@ -14,10 +14,10 @@ const JokeTemplate = ({ id, name, text, likes, dislikes }) => {
                 className="user-avatar"
                 src={`../assets/img/${props.id}.png`}
               />
-              <p className="user-name">${props.name}</p>
+              <p className="user-name">{props.name}</p>
             </div>
 
-            <p className="joke__text">${props.text}</p>
+            <p className="joke__text">{props.text}</p>
           </div>
           <div className="joke__likes">
             <button
@@ -26,7 +26,7 @@ const JokeTemplate = ({ id, name, text, likes, dislikes }) => {
               onClick={() => setLikes(likes + 1)}
             ></button>
             <span id="likes-up" className="likes-count likes-count--up">
-              ${likes}
+              {likes}
             </span>
             <button
               id="btn-down"
@@ -34,7 +34,7 @@ const JokeTemplate = ({ id, name, text, likes, dislikes }) => {
               onClick={() => setDislikes(dislikes + 1)}
             ></button>
             <span id="likes-down" className="likes-count likes-count--down">
-              ${dislikes}
+              {dislikes}
             </span>
           </div>
         </div>
